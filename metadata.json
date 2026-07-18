@@ -1,0 +1,6 @@
+{
+  "name": "Portal de Oportunidades",
+  "description": "Plataforma única para centralizar oportunidades de aprendizaje, cultura, ciencia, tecnología y desarrollo en Chile.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

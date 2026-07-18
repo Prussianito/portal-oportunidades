@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Lora", Georgia, serif;
+  --font-display: "Lora", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Redesign Palette: Muted Sophisticated & Organic */
+  --color-brand-sand: #F7F9FA;
+  --color-brand-sand-dark: #F4F3EF;
+  --color-brand-pizarra: #1E293B;
+  --color-brand-forest: #2C3E35;
+  --color-brand-mustard: #E2B13C;
+  --color-brand-terracotta: #C87A53;
+
+  /* Overrides for standard color selectors to map seamlessly to our custom palette */
+  --color-blue-50: #fbfbfb;
+  --color-blue-100: #f4f3ef;
+  --color-blue-200: #e2b13c;
+  --color-blue-300: #c87a53;
+  --color-blue-400: #C87A53; /* Terracotta as active primary accent */
+  --color-blue-500: #c87a53;
+  --color-blue-600: #1e293b;
+  --color-blue-700: #2c3e35;
+  --color-blue-800: #1e293b;
+  --color-blue-900: #1a2332;
+  --color-blue-950: #0f172a;
+
+  --color-indigo-400: #C87A53;
+  --color-indigo-500: #C87A53;
+  --color-indigo-600: #2C3E35;
+
+  --color-emerald-400: #E2B13C; /* Mustard Yellow */
+  --color-emerald-500: #E2B13C;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #F7F9FA; /* Off-White Sand organic base */
+  color: #1E293B; /* Deep Pizarra Blue */
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(226, 177, 60, 0.04) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(200, 122, 83, 0.04) 0px, transparent 50%);
+  background-attachment: fixed;
+}
+
+.dark body {
+  background-color: #0f151d; /* Deep slate slate */
+  color: #e2e8f0;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(226, 177, 60, 0.02) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(200, 122, 83, 0.02) 0px, transparent 50%);
+}
+
+/* Sophisticated Typography Utility classes */
+h1, h2, h3, .font-display, [class*="font-display"] {
+  font-family: var(--font-serif) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* Organic Forms & Layout overrides to neutralize flat cartoon neobrutalism */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, transform, box-shadow;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Remove hard neobrutalism border style */
+[class*="border-3"],
+[class*="border-2"],
+[class*="border-[#1e293b]"],
+[class*="border-slate-900"] {
+  border-width: 1px !important;
+  border-color: rgba(30, 41, 59, 0.12) !important; /* Soft premium slate-100 overlay */
+}
+
+.dark [class*="border-3"],
+.dark [class*="border-2"],
+.dark [class*="border-[#1e293b]"],
+.dark [class*="border-slate-900"] {
+  border-color: rgba(226, 232, 240, 0.1) !important;
+}
+
+/* Beautiful organic feather shadows */
+[class*="shadow-["],
+[class*="shadow-md"] {
+  box-shadow: 0 10px 30px -5px rgba(30, 41, 59, 0.04), 0 4px 12px -3px rgba(30, 41, 59, 0.02) !important;
+}
+
+.dark [class*="shadow-["],
+.dark [class*="shadow-md"] {
+  box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Smooth hover scales & soft floating movement */
+[class*="shadow-["], [class*="hover:shadow-["] {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+[class*="shadow-["]:hover, [class*="hover:shadow-["]:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 20px 40px -8px rgba(30, 41, 59, 0.08), 0 8px 16px -4px rgba(30, 41, 59, 0.04) !important;
+}
+
+.dark [class*="shadow-["]:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Sophisticated corners - Organic & round */
+[class*="rounded-[2rem]"],
+[class*="rounded-3xl"] {
+  border-radius: 24px !important; /* Large beautiful organic rounded corners */
+}
+
+[class*="rounded-2xl"] {
+  border-radius: 16px !important;
+}
+
+[class*="rounded-xl"] {
+  border-radius: 12px !important;
+}
+
+/* Clean rotations and click effects */
+[class*="rotate-"] {
+  transform: rotate(0deg) !important;
+}
+
+[class*="active:translate-y-"],
+[class*="active:translate-x-"] {
+  transform: none !important;
+}
+
+/* Soften overly bold texts */
+.font-black,
+[class*="font-black"] {
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* Neutralize high contrast neobrutalism buttons to smooth terracotta buttons */
+[class*="bg-[#1abcfe]"] {
+  background-color: #C87A53 !important; /* Muted Terracotta */
+  color: #ffffff !important;
+}
+[class*="text-[#1abcfe]"] {
+  color: #C87A53 !important;
+}
+[class*="border-[#1abcfe]"] {
+  border-color: rgba(200, 122, 83, 0.3) !important;
+}
+[class*="hover:bg-[#1abcfe]"]:hover, [class*="hover:bg-sky-400"]:hover {
+  background-color: #b0653f !important;
+}
+
+/* Success labels map to Muted Mustard or Muted Emerald */
+[class*="bg-[#0acf83]"] {
+  background-color: #E2B13C !important; /* Mustard Yellow */
+  color: #ffffff !important;
+}
+[class*="text-[#0acf83]"] {
+  color: #E2B13C !important;
+}
+[class*="border-[#0acf83]"] {
+  border-color: rgba(226, 177, 60, 0.3) !important;
+}
+
+/* Red / Danger tags mapping */
+[class*="bg-[#f24e1e]"] {
+  background-color: #C87A53 !important;
+  color: #ffffff !important;
+}
+[class*="text-[#f24e1e]"] {
+  color: #C87A53 !important;
+}
+
+/* Purple tags mapping */
+[class*="bg-[#a259ff]"] {
+  background-color: #2C3E35 !important; /* Muted Forest Green */
+  color: #ffffff !important;
+}
+[class*="text-[#a259ff]"] {
+  color: #2C3E35 !important;
+}
+
+/* Soft elegant container styles */
+[class*="from-[#ffe3e1]"] {
+  background-image: linear-gradient(to bottom right, #FFFFFF, #F4F3EF, #F7F9FA) !important;
+}
+
+/* Smooth organic floating lines background helper */
+.organic-bg-wave {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(226, 177, 60, 0.05) 0%, transparent 70%);
+  border-radius: 43% 57% 41% 59% / 57% 45% 55% 43%;
+  animation: waveBubble 25s infinite linear;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.organic-bg-wave-secondary {
+  position: absolute;
+  bottom: 15%;
+  right: 5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(200, 122, 83, 0.04) 0%, transparent 75%);
+  border-radius: 50% 40% 60% 40% / 40% 60% 40% 60%;
+  animation: waveBubble 35s infinite linear reverse;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes waveBubble {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); border-radius: 40% 60% 45% 55% / 55% 45% 55% 45%; }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* Scrollbar Styling for serious look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F9FA;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #0f151d;
+}
+::-webkit-scrollbar-thumb {
+  background: #E2B13C;
+  border: 2px solid #F7F9FA;
+  border-radius: 99px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-color: #0f151d;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C87A53;
+}
+
+/* ==========================================================================
+   CARTOON CLASS COMPATIBILITY LAYERS
+   Ensures standard fallback components look extremely premium
+   ========================================================================== */
+
+.cartoon-card {
+  border: 1px solid rgba(30, 41, 59, 0.08);
+  border-radius: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px -5px rgba(30, 41, 59, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dark .cartoon-card {
+  border: 1px solid rgba(226, 232, 240, 0.06);
+  background-color: #17202c;
+  box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.4);
+}
+.cartoon-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px -8px rgba(30, 41, 59, 0.08);
+}
+
+.cartoon-btn {
+  border: 1px solid #C87A53;
+  border-radius: 99px; /* Deeply rounded pill shape */
+  background-color: #C87A53;
+  color: #ffffff;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+.cartoon-btn:hover {
+  background-color: #b0653f;
+  border-color: #b0653f;
+  transform: translateY(-1px);
+}
+
+.cartoon-input {
+  border: 1px solid rgba(30, 41, 59, 0.12) !important;
+  border-radius: 99px !important; /* Elegant pill inputs */
+  background-color: #ffffff !important;
+  padding: 0.75rem 1.25rem !important;
+  font-size: 0.85rem !important;
+  transition: all 0.2s ease !important;
+}
+.dark .cartoon-input {
+  border: 1px solid rgba(226, 232, 240, 0.1) !important;
+  background-color: #17202c !important;
+}
+.cartoon-input:focus {
+  outline: none !important;
+  border-color: #C87A53 !important;
+  box-shadow: 0 0 0 3px rgba(200, 122, 83, 0.15) !important;
+}
+
